@@ -2,18 +2,20 @@ def isValid(s: str) -> bool:
     open = ['(', '{', '[']
     close = [')', '}', ']'] 
     p_list = []
-    last_p = ""
     for i in s:
-        if s[i] in open:
+        if i in open:
             p_list.append(i)
-            last_p = i
-        elif s[i] in close:
+        elif i in close:
             #check for equal index
-            if(close.index[i] == last_p):
+            y = close.index(i)
+            if (len(p_list)>0 and open[y] == p_list[len(p_list)-1]):
                 p_list.pop()
-                last_p = s[i-1]
             else:
                 return False
+        else:
+            return False
+    if(len(p_list) > 0):
+        return False
     return True
 
 
