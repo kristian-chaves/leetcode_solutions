@@ -1,8 +1,16 @@
 def maxArea(height: list):
-    # 1 pointer
+    # 1 poter
     p1 = 0
     p2 = len(height) - 1
-    max = 0
+
+    width = p2 - p1
+    length = min(height[p1], height[p2])
+    max = width * length
+
+    if(height[p1] <= height[p2]):
+        p1 += 1
+    else:
+        p2 -= 1
     # make temp max, if max ever greater than temp max, return
         # otherwise increment counter
     while(p1  <= p2):
