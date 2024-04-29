@@ -2,7 +2,7 @@ import math
 
 def search_insert_position(nums, target):
     lower = 0
-    upper = len(nums)
+    upper = len(nums) - 1
     while lower <= upper:
         dest = (lower + upper) // 2
         if(target == nums[dest]):
