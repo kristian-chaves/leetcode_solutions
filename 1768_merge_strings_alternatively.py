@@ -9,5 +9,6 @@ def merge_string(s1, s2):
     return
 
 s1 = "abc"
+#da
 s2 = "pqr"
 print(merge_string(s1, s2))
