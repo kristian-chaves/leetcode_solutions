@@ -5,5 +5,8 @@
 # permitted functions: addition, subtraction, div, multiplication, concatentation, sqrt, decimal point (.4), factorial, exponentiation
 
 
+
 if __name__ == '__main__':
-    
+    breakpoint = 20 # using breakpoint instead of for loop to have more flexible break conditions
+    x = 0
+    while True:
