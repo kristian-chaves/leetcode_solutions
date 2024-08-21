@@ -11,7 +11,7 @@ def canPlaceFlowers(flowerbed, n):
                 streak -= 2
     if(streak == 2):
         wins+=1
-    return wins >= n;
+    return wins >= n
 
 
 flowerbed = [1,0,0,0,0,1]
