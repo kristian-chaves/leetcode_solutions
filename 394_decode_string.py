@@ -8,8 +8,7 @@ def decodeString(s):
         else:
             q = ""
             while final[-1] != "[":
-                q += final.pop()
-            q = q[::-1]
+                q = final.pop() + q
             final.pop()
 
             num = ""
