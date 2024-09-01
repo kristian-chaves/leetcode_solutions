@@ -2,28 +2,24 @@ import math
 
 def asteroidCollision(asteroids):
     final = []
-    for x in range(0, len(asteroids)):
-        while(True):                
-            if(len(final) == 0):
-                final.append(asteroids[x])
-                break
-            #same sign
-            elif(math.copysign(1, final[-1]) == math.copysign(1, asteroids[x])):
-                final.append(asteroids[x])
-                break
-            #opposite sign
-            elif(math.copysign(1, final[-1]) != math.copysign(1, asteroids[x])):
-                if(abs(final[-1]) == abs(asteroids[x])):
-                    final.pop()
-                    break
-                elif(abs(final[-1]) < abs(asteroids[x])):
-                    final.pop()
-                else:
-                    break
+    for x in asteroids:
+        while final and x < 0 and final[-1] > 0: 
+            diff = x + final[-1]
+            if(diff < 0):
+                final.pop()
+            elif diff > 0:
+                x = 0
+            else:
+                x = 0
+                final.pop()
+        if x:
+            final.append(x)
     return final
 
 
-asteroids = [-2,-1,1,2]
+#asteroids = [-2,-1,1,2]
+asteroids = [5,10,-5]
+#asteroids = [8,-8]
 
 print(asteroidCollision(asteroids))
 
