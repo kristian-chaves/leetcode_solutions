@@ -1,4 +1,3 @@
-import math
 
 def majorityElement(nums):
     nums.sort()
@@ -12,5 +11,5 @@ print(majorityElement(nums))
 """
 naive:
     nums.sort()
-    return nums[math.floor(len(nums)/2)]
+    return nums[len(nums)//2]
 """
