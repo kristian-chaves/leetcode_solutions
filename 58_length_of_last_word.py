@@ -11,7 +11,7 @@ def lengthOfLastWord(s):
             count +=1
             second = True       
     return count     
-qq
+
 word = 'Hello World'
 print(lengthOfLastWord(word))
 
