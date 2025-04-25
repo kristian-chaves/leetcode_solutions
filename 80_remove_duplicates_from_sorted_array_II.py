@@ -6,7 +6,7 @@ def removeDupe2(nums):
             nums.pop(x)
             x -= 1
         x+=1
-    return len(nums)
+    return len(nums) 
 
 nums = [0,0,1,1,1,1,2,3,3]
 print(removeDupe2(nums))
