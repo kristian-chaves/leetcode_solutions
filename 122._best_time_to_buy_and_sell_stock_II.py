@@ -1,10 +1,8 @@
 
 def bestTime2(prices):
     positives = 0
-    previous = prices[0]
-    for x in prices:
-        positives += max((x - previous), 0)
-        previous = x
+    for x in range(len(prices) - 1):
+        positives += max((prices[x+1] - prices[x]), 0)
     return positives
 
 nums = [7,1,5,3,6,4]
