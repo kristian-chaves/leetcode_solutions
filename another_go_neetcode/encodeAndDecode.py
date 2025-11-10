@@ -2,20 +2,28 @@ def encode(strs):
     outputString = ""
     for word in range(len(strs)):
         outputString += str(len(strs[word]))
+        outputString += "_"
         for x in range(len(strs[word])):
             outputString += chr(ord(strs[word][x]) + 1)
     return outputString
 
 def decode(s):
     res = []
-    tracker = -1
-    while tracker < len(s):
+    tracker = 0
+    length = ""
+    while s != "":
+        while s[tracker] != '_':
+            length += s[tracker]
+            tracker += 1
+        word = s[len(length) +1:int(length)+len(length) +1]
         insertWord = ""
-        for x in range(tracker + 1, int(s[tracker+1]) + 1):
-            insertWord += chr(ord(s[x]) - 1)
+        for x in word:
+            insertWord += chr(ord(x) - 1)
         res.append(insertWord)
-        tracker += int(s[tracker])
-    return s
+        s = s[int(length)+len(length) +1:]
+        tracker = 0
+        length = ""
+    return res
 
 s = ["neet","code","love","you"]
 
