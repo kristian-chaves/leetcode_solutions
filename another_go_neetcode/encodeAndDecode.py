@@ -9,9 +9,9 @@ def encode(strs):
 
 def decode(s):
     res = []
-    tracker = 0
-    length = ""
     while s != "":
+        tracker = 0
+        length = ""
         while s[tracker] != '_':
             length += s[tracker]
             tracker += 1
@@ -21,8 +21,7 @@ def decode(s):
             insertWord += chr(ord(x) - 1)
         res.append(insertWord)
         s = s[int(length)+len(length) +1:]
-        tracker = 0
-        length = ""
+
     return res
 
 s = ["neet","code","love","you"]
