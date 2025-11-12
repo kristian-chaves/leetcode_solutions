@@ -17,4 +17,4 @@ def validAnagram(s, t):
 
 s = "anagram"
 t = "nagaram"
-print(validAnagram(s))
+print(validAnagram(s, t))
