@@ -1,5 +1,5 @@
 def function(board):
-    def addToDict(number, dict):
+    def addToDict(number, dict, entry):
         nonlocal VALIDPUZZLE
         if(number not in dict):
             dict[number] = {}
@@ -17,11 +17,12 @@ def function(board):
         for columnNumber in range(len(board)):
             entry = board[rowNumber][columnNumber]
             if(entry != "."):
-                rowDict = addToDict(rowNumber, rowDict)
-                columnDict = addToDict(columnNumber, columnDict)                
                 #number 1 = row, number2 = column
                 squareDictIndex = str(rowNumber//3) + str(columnNumber//3)
-                squareDict = addToDict(squareDictIndex, squareDict)
+
+                rowDict = addToDict(rowNumber, rowDict, entry)
+                columnDict = addToDict(columnNumber, columnDict, entry)                                
+                squareDict = addToDict(squareDictIndex, squareDict, entry)
     return VALIDPUZZLE
 
 s = [["1","2",".",".","3",".",".",".","."],
