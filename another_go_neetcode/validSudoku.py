@@ -1,5 +1,15 @@
 def function(board):
+    def addToDict(number, dict):
+        nonlocal VALIDPUZZLE
+        if(number not in dict):
+            dict[number] = {}
+        dict[number][entry] = dict[number].get(entry, 0) + 1
+        if(dict[number][entry] > 1):
+            VALIDPUZZLE = False
+        return dict
+
     #go through each row and entry, add to a dictionary for each type
+    VALIDPUZZLE = True
     rowDict = {}
     columnDict = {}
     squareDict = {}
@@ -7,26 +17,12 @@ def function(board):
         for columnNumber in range(len(board)):
             entry = board[rowNumber][columnNumber]
             if(entry != "."):
-                if(rowNumber not in rowDict):
-                    rowDict[rowNumber] = {}
-                rowDict[rowNumber][entry] = rowDict[rowNumber].get(entry, 0) + 1
-                if(rowDict[rowNumber][entry] > 1):
-                    return False
-                
-                if(columnNumber not in columnDict):
-                    columnDict[columnNumber] = {}
-                columnDict[columnNumber][entry] = columnDict[columnNumber].get(entry, 0) + 1
-                if(columnDict[columnNumber][entry] > 1):
-                    return False
-
+                rowDict = addToDict(rowNumber, rowDict)
+                columnDict = addToDict(columnNumber, columnDict)                
                 #number 1 = row, number2 = column
                 squareDictIndex = str(rowNumber//3) + str(columnNumber//3)
-                if(squareDictIndex not in squareDict):
-                    squareDict[squareDictIndex] = {}
-                squareDict[squareDictIndex][entry] = squareDict[squareDictIndex].get(entry, 0) + 1
-                if(squareDict[squareDictIndex][entry] > 1):
-                    return False
-    return True
+                squareDict = addToDict(squareDictIndex, squareDict)
+    return VALIDPUZZLE
 
 s = [["1","2",".",".","3",".",".",".","."],
  ["4",".",".","5",".",".",".",".","."],
